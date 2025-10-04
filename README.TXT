@@ -36,10 +36,58 @@ pair if the key does not already exist in the map. If the key already exists, it
 
 If the key is already present, it leaves the map unchanged.
 
-45.
+44. 
 
- I added printFinalWordCounts() in the WordCounter class and updated the SupportSystem
-by using counter.printFinalWordCounts();
+public void printFinalWordCounts(); accomplishes this in WordCounter class that I put in.
+also updated SupportSystem to make it a more clear: counter.printFinalWordCounts();
+
+ public void printFinalWordCounts()
+    {        
+        System.out.println("Here are the final word counts:");
+        
+        for (String word : counts.keySet()) {
+            System.out.println(word + ": " + counts.get(word));
+        }
+    }
+
+45.
+public HashMap<String, String> getResponseMap()
+{
+    return responseMap;
+}
+
+WordCounter Class:
+
+public void printUnmappedWordCounts(HashMap<String, String> responseMap)
+{
+    for (String word : counts.keySet()) {
+        if (!responseMap.containsKey(word)) {
+            System.out.println(word + ": " + counts.get(word));
+        }
+    }
+}
+
+public void start()
+{
+    boolean finished = false;
+
+    printWelcome();
+
+    while (!finished) {
+        HashSet<String> input = reader.getInput();
+
+        if (input.contains("bye")) {
+            finished = true;
+        } else {
+            counter.addWords(input);
+            String response = responder.generateResponse(input);
+            System.out.println(response);
+        }
+    }
+
+    printGoodbye();
+    counter.printUnmappedWordCounts(responder.getResponseMap());
+}
 
 46.
 
@@ -72,4 +120,8 @@ Usually no errors, but if comments are missing or unclear, the docs won’t help
 @deprecated marks something as outdated.
 
 @since tells which version introduced it.
+
+49. 
+
+COMPLETED
 
