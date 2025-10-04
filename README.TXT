@@ -28,12 +28,18 @@ Then start describing your problem by typing in the terminal window.
 The purpose of this project is to demonstrate and study library classes, such 
 as ArrayList, HashMap, HashSet, and Random.
 
+
+
 43.
-putIfAbsent(key, value) only inserts the (key, value) pair if the key does not already exist in the map.
+putIfAbsent(key, value) only inserts the (key, value)
+pair if the key does not already exist in the map. If the key already exists, it does nothing.
 
 If the key is already present, it leaves the map unchanged.
 
-45. 
+45.
+
+ I added printFinalWordCounts() in the WordCounter class and updated the SupportSystem
+by using counter.printFinalWordCounts();
 
 46.
 

@@ -13,18 +13,11 @@ public class WordCounter
     private final HashMap<String, Integer> counts;
 
     /**
-     * Create a WordCounter
+     * Create a WordCounter with an empty word count map
      */
     public WordCounter()
     {
         counts = new HashMap<>();
-    }
-    
-    public void printWordCounts()
-    {
-        for (String word : counts. keySet()) {
-            System.out.println(word + ": " + counts.get(word));
-        }
     }
     
     /**
@@ -39,6 +32,11 @@ public class WordCounter
         }
     }
     
+    /**
+     * Print all words not recognized by REponder's response map
+     * @param responseMap the Responder's map of recognized keywords and responses
+     */
+    
     public void printUnmappedWordCounts(HashMap<String, String> responseMap)
     {
         for (String word : counts.keySet()) {
@@ -46,5 +44,20 @@ public class WordCounter
                 System.out.println(word + ": " + counts.get(word));
         }
     }   
-}
+    }
+    
+    /**
+     * Print the final usage count of all words.
+     * Should be called after goodbye message has been printed
+     */
+    
+    public void printFinalWordCounts()
+    {        
+        System.out.println("Here are the final word counts:");
+        
+        for (String word : counts.keySet()) {
+            System.out.println(word + ": " + counts.get(word));
+        }
+    }
+    
 }
